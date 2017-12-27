@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 21
-    buildToolsVersion "21.1.2"
+    buildToolsVersion '26.0.2'
 
     defaultConfig {
         applicationId "com.twinone.locker"
@@ -16,12 +16,17 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
         }
     }
+
+    flavorDimensions "tier"
+
     productFlavors {
         google {
             manifestPlaceholders = [PLAY_VERSION: "@integer/google_play_services_version"]
+            dimension "tier"
         }
         fdroid {
             manifestPlaceholders = [PLAY_VERSION: "0"]
+            dimension "tier"
         }
     }
     sourceSets {
